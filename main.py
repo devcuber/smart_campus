@@ -10,7 +10,7 @@ with open('config.json', 'r') as file:
 
 tuya_controller     = TuyaController(config_json.get('tuya_credentials',{}))
 db_credentials      = config_json.get('db_credentials',{})
-_db                 = db(db_credentials.get('server'), db_credentials.get('database'))
+_db                 = db(db_credentials.get('server'), db_credentials.get('database'), db_credentials.get('user'), db_credentials.get('password'))
 repository          = LogsRepository(_db)
 devices_repository  = DevicesRepository(_db)
 devices             = devices_repository.select_all_active_devices()

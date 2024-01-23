@@ -31,7 +31,7 @@ CREATE TABLE [location] (
 GO
 
 CREATE TABLE [devices] (
-  [id] varchar(20) PRIMARY KEY,
+  [id] varchar(50) PRIMARY KEY,
   [description] nvarchar(255),
   [device_type_id] integer,
   [location_id] integer,
@@ -45,7 +45,7 @@ GO
 
 CREATE TABLE [logs] (
   [id] INT PRIMARY KEY IDENTITY(1,1),
-  [device_id] varchar(20),
+  [device_id] varchar(50),
   [created_at] datetime,
   [updated_at] datetime,
   [created_by] integer,
