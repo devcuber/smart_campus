@@ -3,18 +3,9 @@ from datetime import datetime
 
 class TuyaController:
     openapi = None
-    def __init__(self,credentials):
-        self.openapi = TuyaOpenAPI(
-            credentials.get('endpoint'),
-            credentials.get('client_id'),
-            credentials.get('secret_key')
-        )
-        self.openapi.connect(
-            credentials.get('username'),
-            credentials.get('password'),
-            "52",
-            'tuyasmart'
-        )
+    def __init__(self,client_id, secret_key, username, password, endpoint):
+        self.openapi = TuyaOpenAPI(endpoint,client_id,secret_key)
+        self.openapi.connect(username,password,"52","tuyasmart")
 
     def get_logs (self, device_id):
         endpoint = f'/v1.0/iot-03/devices/{device_id}/status'
